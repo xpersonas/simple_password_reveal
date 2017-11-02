@@ -6,7 +6,7 @@
 (function ($, Drupal) {
   'use strict';
 
-  var selector = jQuery('#edit-pass, #edit-current-pass, #edit-pass-pass1, #edit-pass-pass2');
+  var selector = jQuery('input[data-drupal-selector^="edit-pass"]');
 
   selector.attr('type', 'text');
 
