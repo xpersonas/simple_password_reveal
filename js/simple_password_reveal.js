@@ -1,23 +1,27 @@
 /**
  * @file
- * Attaches behaviors for the custom Google Maps.
+ * Toggles password field between password/text input field.
  */
 
-(function ($, Drupal) {
-  'use strict';
+(function () {
+  var vanillaCheckbox = document.getElementById("edit-simple-password-reveal-checkbox");
+  var vanillaPasswordFields = document.querySelectorAll("#edit-pass, #edit-current-pass, #edit-pass-pass1, #edit-pass-pass2");
 
-  jQuery('#edit-simple-password-reveal-checkbox').prop( "checked", false );
+  togglePasswordFields();
 
-  var selector = jQuery('input[data-drupal-selector^="edit-pass"]');
-
-  selector.attr('type', 'text');
-
-  jQuery('#edit-simple-password-reveal-checkbox').change(function () {
-    if (jQuery(this).is(':checked')) {
-      selector.attr('type', 'password');
-    }
-    else {
-      selector.attr('type', 'text');
-    }
+  vanillaCheckbox.addEventListener('change', function() {
+    togglePasswordFields();
   });
-})(jQuery, Drupal);
+
+  function togglePasswordFields() {
+    [].forEach.call(vanillaPasswordFields, function(vanillaPasswordField) {
+      if (vanillaCheckbox.checked) {
+        vanillaPasswordField.type = 'password';
+      }
+      else {
+        vanillaPasswordField.type = 'text';
+      }
+    });
+  }
+})();
+
