@@ -7,20 +7,22 @@
   var vanillaCheckbox = document.getElementById("edit-simple-password-reveal-checkbox");
   var vanillaPasswordFields = document.querySelectorAll("#edit-pass, #edit-current-pass, #edit-pass-pass1, #edit-pass-pass2");
 
-  togglePasswordFields();
-
-  vanillaCheckbox.addEventListener('change', function() {
+  if (vanillaCheckbox !== null) {
     togglePasswordFields();
-  });
 
-  function togglePasswordFields() {
-    [].forEach.call(vanillaPasswordFields, function(vanillaPasswordField) {
-      if (vanillaCheckbox.checked) {
-        vanillaPasswordField.type = 'password';
-      }
-      else {
-        vanillaPasswordField.type = 'text';
-      }
+    vanillaCheckbox.addEventListener('change', function() {
+      togglePasswordFields();
     });
+
+    function togglePasswordFields() {
+      [].forEach.call(vanillaPasswordFields, function(vanillaPasswordField) {
+        if (vanillaCheckbox.checked) {
+          vanillaPasswordField.type = 'password';
+        }
+        else {
+          vanillaPasswordField.type = 'text';
+        }
+      });
+    }
   }
 })();
