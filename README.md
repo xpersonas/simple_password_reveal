@@ -2,6 +2,15 @@
 
 This module alters password fields on user login and user edit forms to show plain text by default, while also adding a checkbox for concealing the password as needed.
 
+## Installation ##
+
+Module page: https://www.drupal.org/project/simple_password_reveal
+```
+composer require drupal/simple_password_reveal
+```
+
+## Background ##
+
 Rather than creating friction for a user to show a password each time by clicking a check box, the password is revealed by default. In my experience, I generally prefer password fields to be plain text almost all the time. It's only when in public or during a presentation that I want to conceal passwords.
 
 There is another module that provides similar functionality. However, Simple Password Reveal takes a different approach than the Password Toggle module. They use javascript to add a checkbox to each password field in any and all forms. They also have a Drupal 7 version.
